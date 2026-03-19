@@ -1,277 +1,284 @@
-// === NAVBAR SCROLL ===
+// === NAV SCROLL ===
 window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// === FORM STATE ===
-let currentStep = 1;
+// === STATE ===
 let selectedService = null;
-
-const totalSteps = 6;
+let currentStep = 1;
 
 // === PRESELECT FROM SERVICE CARDS ===
 function preselect(service) {
   selectedService = service;
-  const radios = document.querySelectorAll('input[name="servicio"]');
-  radios.forEach(r => {
-    if (r.value === service) {
-      r.checked = true;
-      r.closest('.service-option')?.querySelector('.service-opt-inner')?.classList.add('checked');
-    }
+  document.querySelectorAll('input[name="servicio"]').forEach(r => {
+    r.checked = r.value === service;
   });
-  document.getElementById('btn-step1').disabled = false;
+  document.getElementById('btn-s1').disabled = false;
 }
 
 // === SERVICE RADIO LISTENERS ===
-document.querySelectorAll('input[name="servicio"]').forEach(radio => {
-  radio.addEventListener('change', () => {
-    selectedService = radio.value;
-    document.getElementById('btn-step1').disabled = false;
+document.querySelectorAll('input[name="servicio"]').forEach(r => {
+  r.addEventListener('change', () => {
+    selectedService = r.value;
+    document.getElementById('btn-s1').disabled = false;
   });
 });
 
 // === STEP NAVIGATION ===
-function goStep(step) {
-  if (!validateCurrentStep()) return;
-
-  document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-
-  // Step 5 routing based on service
-  if (step === 5) {
-    if (selectedService === 'nutricion') {
-      document.getElementById('step-5-nutricion').classList.add('active');
-    } else if (selectedService === 'entrenamiento') {
-      document.getElementById('step-5-entrenamiento').classList.add('active');
-    } else {
-      // completo: show nutrition first, then entrenamiento
-      document.getElementById('step-5-nutricion').classList.add('active');
-    }
-  } else {
-    const el = document.getElementById(`step-${step}`);
-    if (el) el.classList.add('active');
-  }
-
-  currentStep = step;
-  updateProgress();
-  document.getElementById('form-wrap') || document.querySelector('.form-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+function showStep(id) {
+  document.querySelectorAll('.fstep').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelector('.form-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Handle step 4 next (if completo, go through both)
-let nutritionDone = false;
+function goStep(n) {
+  if (!validate()) return;
+
+  if (n === 5) {
+    if (selectedService === 'nutricion') {
+      showStep('step-5-nutricion');
+    } else if (selectedService === 'entrenamiento') {
+      showStep('step-5-entrenamiento');
+    } else {
+      // completo: nutricion first
+      showStep('step-5-nutricion');
+    }
+    currentStep = 5;
+  } else if (n === 6) {
+    showStep('step-6');
+    currentStep = 6;
+  } else {
+    showStep(`step-${n}`);
+    currentStep = n;
+  }
+  updateProgress();
+}
 
 function handleStep4Next() {
-  if (!validateCurrentStep()) return;
-  if (selectedService === 'completo' && !nutritionDone) {
-    nutritionDone = false; // reset
-  }
+  if (!validate()) return;
   goStep(5);
 }
 
-// Handle going back from step 6
-function goBackFromStep6() {
-  if (selectedService === 'entrenamiento') {
-    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-    document.getElementById('step-5-entrenamiento').classList.add('active');
-    currentStep = 5;
-  } else {
-    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-    document.getElementById('step-5-nutricion').classList.add('active');
-    currentStep = 5;
-  }
-  updateProgress();
-}
-
-// Special next for step 5 nutricion in "completo" mode
-document.getElementById('step-5-nutricion')?.querySelector('.btn-next')?.addEventListener('click', function(e) {
-  e.stopPropagation();
+function nextFrom5Nutricion() {
+  if (!validate()) return;
   if (selectedService === 'completo') {
-    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-    document.getElementById('step-5-entrenamiento').classList.add('active');
-    currentStep = 5.5; // virtual
+    // Show entrenamiento step next
+    showStep('step-5-entrenamiento');
+    currentStep = 5.5;
+    updateProgress();
   } else {
     goStep(6);
   }
-  updateProgress();
-});
+}
 
-document.getElementById('step-5-entrenamiento')?.querySelector('.btn-back')?.addEventListener('click', function(e) {
-  e.stopPropagation();
+function backFrom5Entrenamiento() {
   if (selectedService === 'completo') {
-    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-    document.getElementById('step-5-nutricion').classList.add('active');
+    showStep('step-5-nutricion');
+    currentStep = 5;
   } else {
     goStep(4);
   }
   updateProgress();
-});
+}
 
-// === PROGRESS BAR ===
+function goBackFromStep6() {
+  if (selectedService === 'entrenamiento') {
+    showStep('step-5-entrenamiento');
+  } else {
+    showStep('step-5-nutricion');
+  }
+  currentStep = 5;
+  updateProgress();
+}
+
+// === PROGRESS ===
 function updateProgress() {
-  const wrap = document.getElementById('progress-wrap');
-  const bar = document.getElementById('progress-bar');
-  const label = document.getElementById('progress-label');
-
-  const stepMap = { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 5.5: 5, 6: 6 };
-  const s = stepMap[currentStep] || currentStep;
-  const pct = Math.round((s / totalSteps) * 100);
-
-  bar.style.setProperty('--progress', `${pct}%`);
-  label.textContent = `Paso ${Math.min(s, totalSteps)} de ${totalSteps}`;
-
-  const isLast = s >= totalSteps;
-  wrap.style.display = isLast && document.getElementById('step-success').classList.contains('active') ? 'none' : 'flex';
+  const stepNum = typeof currentStep === 'number' ? Math.round(currentStep) : currentStep;
+  const clamped = Math.min(Math.max(stepNum, 1), 6);
+  const pct = (clamped / 6) * 100;
+  document.getElementById('progress-fill').style.width = `${pct}%`;
+  document.getElementById('progress-label').textContent = `Paso ${clamped} de 6`;
 }
 
 // === VALIDATION ===
-function validateCurrentStep() {
-  const activeStep = document.querySelector('.form-step.active');
-  if (!activeStep) return true;
+function validate() {
+  const active = document.querySelector('.fstep.active');
+  if (!active) return true;
+  const id = active.id;
 
-  const stepId = activeStep.id;
-
-  if (stepId === 'step-1') {
-    if (!selectedService) {
-      showToast('Por favor, selecciona un servicio para continuar.');
-      return false;
-    }
+  if (id === 'step-1' && !selectedService) {
+    toast('Por favor, selecciona un servicio para continuar.');
+    return false;
   }
-
-  if (stepId === 'step-2') {
-    const nombre = document.getElementById('nombre').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const edad = document.getElementById('edad').value;
-    const peso = document.getElementById('peso').value;
-    const altura = document.getElementById('altura').value;
-
-    if (!nombre) { showToast('Por favor, introduce tu nombre.'); return false; }
-    if (!email || !email.includes('@')) { showToast('Por favor, introduce un email válido.'); return false; }
-    if (!edad) { showToast('Por favor, introduce tu edad.'); return false; }
-    if (!peso) { showToast('Por favor, introduce tu peso.'); return false; }
-    if (!altura) { showToast('Por favor, introduce tu altura.'); return false; }
+  if (id === 'step-2') {
+    const n = document.getElementById('nombre')?.value?.trim();
+    const e = document.getElementById('email')?.value?.trim();
+    const ed = document.getElementById('edad')?.value;
+    const p = document.getElementById('peso')?.value;
+    const h = document.getElementById('altura')?.value;
+    if (!n) { toast('Por favor, introduce tu nombre.'); return false; }
+    if (!e || !e.includes('@')) { toast('Por favor, introduce un email válido.'); return false; }
+    if (!ed) { toast('Por favor, introduce tu edad.'); return false; }
+    if (!p) { toast('Por favor, introduce tu peso.'); return false; }
+    if (!h) { toast('Por favor, introduce tu altura.'); return false; }
   }
-
   return true;
 }
 
 // === TOAST ===
-function showToast(msg) {
-  const existing = document.querySelector('.toast');
-  if (existing) existing.remove();
-
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.textContent = msg;
-  toast.style.cssText = `
-    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%);
-    background: #2c2118; color: #faf7f2; padding: 14px 28px;
-    border-radius: 50px; font-family: DM Sans, sans-serif; font-size: 0.87rem;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.2); z-index: 9999;
-    animation: toastIn 0.3s ease;
+function toast(msg) {
+  document.querySelector('.toast-msg')?.remove();
+  const t = document.createElement('div');
+  t.className = 'toast-msg';
+  t.textContent = msg;
+  t.style.cssText = `
+    position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+    background:var(--dark,#1c1812);color:#fff;
+    padding:13px 26px;border-radius:50px;
+    font-family:'Jost',sans-serif;font-size:0.85rem;
+    box-shadow:0 8px 30px rgba(0,0,0,0.2);z-index:9999;
+    animation:fadeInToast .3s ease;
   `;
-  document.head.insertAdjacentHTML('beforeend', `<style>@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}</style>`);
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), 3500);
+  if (!document.getElementById('toast-style')) {
+    const st = document.createElement('style');
+    st.id = 'toast-style';
+    st.textContent = '@keyframes fadeInToast{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}';
+    document.head.appendChild(st);
+  }
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3500);
 }
 
-// === COLLECT ALL FORM DATA ===
-function collectFormData() {
+// === COLLECT DATA ===
+function collectData() {
+  const v = id => document.getElementById(id)?.value?.trim() || '';
+  const r = name => document.querySelector(`input[name="${name}"]:checked`)?.value || '';
+
   const data = {
     servicio: selectedService,
-    nombre: document.getElementById('nombre')?.value?.trim() || '',
-    email: document.getElementById('email')?.value?.trim() || '',
-    telefono: document.getElementById('telefono')?.value?.trim() || '',
-    edad: document.getElementById('edad')?.value || '',
-    peso: document.getElementById('peso')?.value || '',
-    altura: document.getElementById('altura')?.value || '',
-    sexo: document.getElementById('sexo')?.value || '',
-    ocupacion: document.getElementById('ocupacion')?.value?.trim() || '',
-    objetivo: document.querySelector('input[name="objetivo"]:checked')?.value || '',
-    objetivo_detalle: document.getElementById('objetivo-detalle')?.value?.trim() || '',
-    condicion_medica: document.getElementById('condicion-medica')?.value?.trim() || '',
-    lesiones: document.getElementById('lesiones')?.value?.trim() || '',
-    medicacion: document.getElementById('medicacion')?.value?.trim() || '',
-    comentarios: document.getElementById('comentarios')?.value?.trim() || '',
-    como_conociste: document.getElementById('como-conociste')?.value || '',
+    nombre: v('nombre'), email: v('email'), telefono: v('telefono'),
+    edad: v('edad'), peso: v('peso'), altura: v('altura'),
+    sexo: v('sexo'), ocupacion: v('ocupacion'),
+    objetivo: r('objetivo'), objetivo_detalle: v('objetivo-detalle'),
+    condicion_medica: v('condicion-medica'), lesiones: v('lesiones'), medicacion: v('medicacion'),
+    comentarios: v('comentarios'), como_conociste: v('como-conociste'),
   };
 
-  // Nutrición
   if (selectedService === 'nutricion' || selectedService === 'completo') {
-    data.alimentacion_actual = document.getElementById('alimentacion-actual')?.value?.trim() || '';
-    data.intolerancias = document.getElementById('intolerancias')?.value?.trim() || '';
-    data.dieta_tipo = document.getElementById('dieta-tipo')?.value?.trim() || '';
-    data.num_comidas = document.getElementById('num-comidas')?.value || '';
-    data.agua = document.getElementById('agua')?.value || '';
-    data.no_gusta = document.getElementById('no-gusta')?.value?.trim() || '';
+    Object.assign(data, {
+      alimentacion_actual: v('alimentacion-actual'),
+      intolerancias: v('intolerancias'),
+      dieta_tipo: v('dieta-tipo'),
+      num_comidas: v('num-comidas'),
+      agua: v('agua'),
+      no_gusta: v('no-gusta'),
+    });
   }
 
-  // Entrenamiento
   if (selectedService === 'entrenamiento' || selectedService === 'completo') {
-    data.nivel = document.querySelector('input[name="nivel"]:checked')?.value || '';
-    data.lugar = document.querySelector('input[name="lugar"]:checked')?.value || '';
-    data.dias_entrenamiento = document.getElementById('dias-entrenamiento')?.value || '';
-    data.tiempo_sesion = document.getElementById('tiempo-sesion')?.value || '';
-    data.experiencia_previa = document.getElementById('experiencia-previa')?.value?.trim() || '';
+    Object.assign(data, {
+      nivel: r('nivel'), lugar: r('lugar'),
+      dias_entrenamiento: v('dias-entrenamiento'),
+      tiempo_sesion: v('tiempo-sesion'),
+      experiencia_previa: v('experiencia-previa'),
+    });
   }
 
   return data;
 }
 
-// === SUBMIT FORM ===
+// === SUBMIT CUESTIONARIO ===
 async function submitForm() {
-  const privacidad = document.getElementById('privacidad').checked;
-  if (!privacidad) {
-    showToast('Por favor, acepta la política de privacidad para continuar.');
+  if (!document.getElementById('privacidad').checked) {
+    toast('Por favor, acepta la política de privacidad.');
     return;
   }
 
-  const data = collectFormData();
-
+  const btn = document.getElementById('btn-submit');
   document.getElementById('btn-text').style.display = 'none';
   document.getElementById('btn-loading').style.display = 'inline';
-  document.getElementById('btn-submit').disabled = true;
+  btn.disabled = true;
 
   try {
-    const response = await fetch('/api/send-form', {
+    const res = await fetch('/api/send-form', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: JSON.stringify(collectData()),
     });
+    const result = await res.json();
 
-    const result = await response.json();
-
-    if (response.ok && result.success) {
-      // Show success
-      document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
-      document.getElementById('step-success').classList.add('active');
+    if (res.ok && result.success) {
+      showStep('step-success');
       document.getElementById('progress-wrap').style.display = 'none';
     } else {
-      throw new Error(result.error || 'Error desconocido');
+      throw new Error(result.error || 'Error');
     }
-  } catch (err) {
-    console.error(err);
-    showToast('Hubo un error al enviar. Por favor, inténtalo de nuevo.');
+  } catch (e) {
+    toast('Hubo un error al enviar. Por favor, inténtalo de nuevo.');
     document.getElementById('btn-text').style.display = 'inline';
     document.getElementById('btn-loading').style.display = 'none';
-    document.getElementById('btn-submit').disabled = false;
+    btn.disabled = false;
   }
 }
 
-// === INIT PROGRESS ===
-updateProgress();
+// === CONTACTO SIMPLE ===
+async function sendContact() {
+  const nombre = document.getElementById('c-nombre')?.value?.trim();
+  const contacto = document.getElementById('c-contacto')?.value?.trim();
+  const mensaje = document.getElementById('c-mensaje')?.value?.trim();
 
-// === SCROLL REVEAL FOR SECTIONS ===
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+  if (!nombre) { toast('Por favor, introduce tu nombre.'); return; }
+  if (!contacto) { toast('Por favor, introduce tu email o WhatsApp.'); return; }
+  if (!mensaje) { toast('Por favor, escribe un mensaje.'); return; }
+
+  const btn = document.getElementById('c-btn-text');
+  const loading = document.getElementById('c-btn-loading');
+  btn.style.display = 'none';
+  loading.style.display = 'inline';
+
+  try {
+    const res = await fetch('/api/send-contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre,
+        contacto,
+        servicio: document.getElementById('c-servicio')?.value || '',
+        mensaje,
+      }),
+    });
+    const result = await res.json();
+
+    if (res.ok && result.success) {
+      document.getElementById('c-success').style.display = 'block';
+      btn.style.display = 'inline';
+      loading.style.display = 'none';
+    } else {
+      throw new Error();
+    }
+  } catch {
+    toast('Error al enviar. Inténtalo de nuevo.');
+    btn.style.display = 'inline';
+    loading.style.display = 'none';
+  }
+}
+
+// === SCROLL REVEAL ===
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.1 });
 
-document.querySelectorAll('.sobre-content, .sobre-mi-img-wrap, .servicio-card, .formulario-header').forEach(el => {
+document.querySelectorAll('.scard, .icard, .sobre-left, .sobre-right, .cinfo, .cform').forEach(el => {
   el.style.opacity = '0';
-  el.style.transform = 'translateY(40px)';
-  el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
+
+// Init
+updateProgress();
