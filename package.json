@@ -1,0 +1,13 @@
+{
+  "name": "alegria-wellness",
+  "version": "1.0.0",
+  "description": "Web de Lucía Alegría - Entrenadora Personal",
+  "type": "module",
+  "dependencies": {
+    "resend": "^3.0.0",
+    "pdfkit": "^0.15.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
