@@ -420,100 +420,154 @@ p {
   display: flex;
   flex-direction: column;
   position: relative;
+  min-height: 460px;
+  overflow: hidden;
   transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
+
 .scard:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
 }
 
-.scard--dark {
-  background: var(--dark-2);
-  border-color: transparent;
-  color: var(--white);
+.scard-icon {
+  font-size: 2.2rem;
+  margin-bottom: 22px;
+  line-height: 1;
 }
-.scard--dark h3 {
-  color: var(--white) !important;
+
+.scard h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 14px;
 }
-.scard--dark p {
-  color: rgba(255, 255, 255, 0.75) !important;
+
+.scard p {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  margin-bottom: 24px;
+  flex: 1;
+  line-height: 1.8;
 }
-.scard--dark li {
-  color: rgba(255, 255, 255, 0.75) !important;
+
+.scard ul {
+  list-style: none;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.scard--dark li::before {
-  color: var(--sage-light) !important;
+
+.scard li {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.6;
 }
-.scard--dark .scard-cta {
-  color: var(--sage-light) !important;
+
+.scard li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--sage);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.scard-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.scard-cta:hover {
+  color: var(--sage);
+  transform: translateX(2px);
 }
 
 .scard-badge {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: var(--rose);
+  background: linear-gradient(135deg, #d88d63, #c47a5a);
   color: var(--white);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  padding: 4px 12px;
-  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 7px 14px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(196, 122, 90, 0.22);
 }
-.scard-icon {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+
+/* CARD DESTACADO */
+.scard--dark {
+  background: linear-gradient(135deg, #2f2115 0%, #1f1711 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  box-shadow: 0 18px 50px rgba(28, 24, 18, 0.18);
 }
-.scard h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-.scard--dark h3 {
-  color: var(--white) !important;
-}
-.scard p {
-  font-size: 0.875rem;
-  color: var(--text-mid);
-  margin-bottom: 20px;
-  flex: 1;
-}
-.scard--dark p {
-  color: rgba(255, 255, 255, 0.75) !important;
-}
-.scard ul {
-  list-style: none;
-  margin-bottom: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.scard li {
-  font-size: 0.85rem;
-  color: var(--text-mid);
-  padding-left: 18px;
-  position: relative;
-}
-.scard li::before {
-  content: "✓";
+
+.scard--dark::before {
+  content: "";
   position: absolute;
-  left: 0;
-  color: var(--sage);
-  font-size: 0.8rem;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.07),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(107, 158, 122, 0.1),
+      transparent 30%
+    );
+  pointer-events: none;
 }
-.scard-cta {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-mid);
-  text-decoration: none;
-  transition: color 0.2s;
+
+.scard--dark > * {
+  position: relative;
+  z-index: 1;
 }
-.scard-cta:hover {
-  color: var(--text);
+
+.scard--dark h3 {
+  color: #fff !important;
+}
+
+.scard--dark p {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.scard--dark li {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.scard--dark li::before {
+  color: #8fce9f !important;
+}
+
+.scard--dark .scard-cta {
+  color: #9ed7ab !important;
+}
+
+.scard--dark .scard-cta:hover {
+  color: #ffffff !important;
 }
 
 /* === INCLUYE === */
