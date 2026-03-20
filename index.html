@@ -1,343 +1,738 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alegría Wellness · Lucía Alegría</title>
-  <meta name="description" content="Planes personalizados de nutrición y entrenamiento con Lucía Alegría. Madrid." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <a href="#" class="nav-logo">Alegría <em>Wellness</em></a>
-    <ul class="nav-links">
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-    <a href="#formulario" class="nav-cta">Empezar ahora</a>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <div class="hero-left">
-      <div class="hero-tag">
-        <span class="tag-dot"></span>
-        Nutrición &amp; Entrenamiento Personal · Madrid
-      </div>
-      <h1 class="hero-title">
-        Tu mejor versión<br/>empieza con un<br/><em>buen hábito</em>
-      </h1>
-      <p class="hero-sub">
-        Planes de nutrición y entrenamiento totalmente personalizados.
-        Sin dietas imposibles, sin rutinas genéricas. Solo lo que funciona para <em>ti</em>.
-      </p>
-      <div class="hero-actions">
-        <a href="#formulario" class="btn-dark">Quiero empezar →</a>
-        <a href="#servicios" class="btn-ghost">Ver servicios</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hstat">
-          <span class="hstat-n">100%</span>
-          <span class="hstat-l">Planes personalizados</span>
-        </div>
-        <div class="hstat-div"></div>
-        <div class="hstat">
-          <span class="hstat-n">24h</span>
-          <span class="hstat-l">Soporte directo</span>
-        </div>
-        <div class="hstat-div"></div>
-        <div class="hstat">
-          <span class="hstat-n">2 en 1</span>
-          <span class="hstat-l">Nutrición + Entrenamiento</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-circle">
-        <!-- Para añadir la foto: reemplaza este div por
-             <img src="img/lucia.jpg" alt="Lucía Alegría" class="hero-photo" /> -->
-      </div>
-    </div>
-  </section>
-
-  <!-- SOBRE MÍ -->
-  <section class="sobre" id="sobre-mi">
-    <div class="sobre-top">
-      <p class="section-label">🌿 Sobre mí</p>
-      <h2 class="section-title">Hola, soy <em>Lucía</em></h2>
-      <p class="sobre-tagline">Nutricionista deportiva, dietista y entrenadora personal con una misión clara: ayudarte a vivir mejor.</p>
-    </div>
-    <div class="sobre-body">
-      <div class="sobre-left">
-        <blockquote class="quote-card">
-          "Me apasiona el mundo de la salud y el deporte. Ver a mis clientes alcanzar sus objetivos es lo que me hace levantarme cada día con energía."
-          <cite>— Lucía Alegría, fundadora de Alegría Wellness</cite>
-        </blockquote>
-        <div class="location-tag">📍 Madrid</div>
-      </div>
-      <div class="sobre-right">
-        <h3 class="sobre-sub">Formada para <em>acompañarte</em> de verdad</h3>
-        <p>Me formé en Nutrición Deportiva y Dietética Aplicada, y después en Fitness e Instrucción de Entrenamiento Personal porque quería ofrecerte algo completo.</p>
-        <p>No creo en las dietas milagro ni en las rutinas copiadas. Cada persona es diferente, y tu plan también lo será. Me gusta conocerte, entender tu vida y diseñar algo que realmente puedas mantener.</p>
-        <div class="sobre-tags">
-          <span>🎓 Nutrición Deportiva</span>
-          <span>🥗 Dietética Aplicada</span>
-          <span>💪 Entrenamiento Personal</span>
-          <span>🏋️ Instructor Fitness</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section class="servicios" id="servicios">
-    <div class="section-header">
-      <p class="section-label">✨ Servicios</p>
-      <h2 class="section-title">¿En qué puedo <em>ayudarte</em>?</h2>
-      <p class="section-sub">Elige el servicio que mejor se adapta a lo que necesitas ahora mismo.<br/>Siempre puedes ampliar más adelante.</p>
-    </div>
-    <div class="scards">
-      <div class="scard">
-        <div class="scard-icon">🥗</div>
-        <h3>Plan Nutricional</h3>
-        <p>Un plan de alimentación diseñado para ti, adaptado a tus objetivos, intolerancias y estilo de vida. Sin pasar hambre.</p>
-        <ul>
-          <li>Plan semanal personalizado</li>
-          <li>Recetas y menús incluidos</li>
-          <li>Adaptado a tus gustos</li>
-          <li>Seguimiento semanal</li>
-        </ul>
-        <a href="#formulario" class="scard-cta" onclick="preselect('nutricion')">Empezar cuestionario →</a>
-      </div>
-      <div class="scard scard--dark">
-        <div class="scard-badge">Más completo</div>
-        <div class="scard-icon">🌿</div>
-        <h3>Plan Completo</h3>
-        <p>Nutrición y entrenamiento juntos, el combo perfecto para transformar tu cuerpo y tus hábitos de forma sostenible.</p>
-        <ul>
-          <li>Plan nutricional completo</li>
-          <li>Rutina de entrenamiento</li>
-          <li>Seguimiento semanal</li>
-          <li>Soporte 24h por WhatsApp</li>
-          <li>Videollamadas de seguimiento</li>
-        </ul>
-        <a href="#formulario" class="scard-cta" onclick="preselect('completo')">Empezar cuestionario →</a>
-      </div>
-      <div class="scard">
-        <div class="scard-icon">💪</div>
-        <h3>Plan de Entrenamiento</h3>
-        <p>Tu rutina ideal adaptada a tu nivel, disponibilidad y material. Tanto si entrenas en gym, en casa o al aire libre.</p>
-        <ul>
-          <li>Rutina personalizada</li>
-          <li>Adaptada a tu material</li>
-          <li>Progresión incluida</li>
-          <li>Seguimiento semanal</li>
-        </ul>
-        <a href="#formulario" class="scard-cta" onclick="preselect('entrenamiento')">Empezar cuestionario →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- INCLUYE -->
-  <section class="incluye">
-    <p class="section-label section-label--light">⭐ En todos los planes</p>
-    <h2 class="section-title section-title--light">Lo que siempre <em>incluye</em><br/>trabajar conmigo</h2>
-    <div class="icards">
-      <div class="icard">
-        <div class="icard-icon">📅</div>
-        <h4>Seguimiento semanal</h4>
-        <p>Revisamos juntos cómo va todo cada semana y ajustamos lo que sea necesario.</p>
-      </div>
-      <div class="icard">
-        <div class="icard-icon">💬</div>
-        <h4>Soporte 24 horas</h4>
-        <p>¿Tienes una duda a las 10 de la noche? Estoy por WhatsApp y email para responderte.</p>
-      </div>
-      <div class="icard">
-        <div class="icard-icon">🎥</div>
-        <h4>Videollamadas</h4>
-        <p>Sesiones de seguimiento por videollamada para que nunca te sientas solo/a en el proceso.</p>
-      </div>
-      <div class="icard">
-        <div class="icard-icon">🎯</div>
-        <h4>100% personalizado</h4>
-        <p>Nada genérico. Todo diseñado para ti, tu vida, tus gustos y tus objetivos concretos.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMULARIO -->
-  <section class="form-section" id="formulario">
-    <div class="section-header">
-      <p class="section-label">📋 Cuestionario de cliente</p>
-      <h2 class="section-title">Cuéntame sobre <em>ti</em></h2>
-      <p class="section-sub">Rellena el cuestionario y me pondré en contacto contigo en menos de 24h con tu propuesta personalizada.</p>
-    </div>
-
-    <div class="form-card" id="form-wrap">
-
-      <div class="fstep active" id="step-1">
-        <h3 class="step-h">¿Qué servicio te interesa?</h3>
-        <div class="svc-selector">
-          <label class="svc-opt"><input type="radio" name="servicio" value="nutricion" /><div class="svc-inner"><span>🥗</span><strong>Solo Nutrición</strong></div></label>
-          <label class="svc-opt"><input type="radio" name="servicio" value="entrenamiento" /><div class="svc-inner"><span>💪</span><strong>Solo Entrenamiento</strong></div></label>
-          <label class="svc-opt"><input type="radio" name="servicio" value="completo" /><div class="svc-inner"><span>🌿</span><strong>Plan Completo</strong></div></label>
-        </div>
-        <button class="btn-dark" id="btn-s1" onclick="goStep(2)" disabled style="margin-top:24px;width:100%">Continuar →</button>
-      </div>
-
-      <div class="fstep" id="step-2">
-        <h3 class="step-h">Tus datos personales</h3>
-        <div class="fgrid">
-          <div class="fg fg--full"><label>Nombre completo *</label><input type="text" id="nombre" placeholder="Tu nombre completo" /></div>
-          <div class="fg"><label>Email *</label><input type="email" id="email" placeholder="tu@email.com" /></div>
-          <div class="fg"><label>Teléfono</label><input type="tel" id="telefono" placeholder="+34 600 000 000" /></div>
-          <div class="fg"><label>Edad *</label><input type="number" id="edad" placeholder="25" min="16" max="99" /></div>
-          <div class="fg"><label>Peso (kg) *</label><input type="number" id="peso" placeholder="65" step="0.1" /></div>
-          <div class="fg"><label>Altura (cm) *</label><input type="number" id="altura" placeholder="165" /></div>
-          <div class="fg"><label>Sexo *</label><select id="sexo"><option value="">Selecciona...</option><option value="mujer">Mujer</option><option value="hombre">Hombre</option><option value="otro">Prefiero no decirlo</option></select></div>
-          <div class="fg"><label>Ocupación</label><input type="text" id="ocupacion" placeholder="Ej: oficina, trabajo físico..." /></div>
-        </div>
-        <div class="fnav"><button class="btn-ghost-sm" onclick="goStep(1)">← Atrás</button><button class="btn-dark" onclick="goStep(3)">Continuar →</button></div>
-      </div>
-
-      <div class="fstep" id="step-3">
-        <h3 class="step-h">Tu objetivo principal</h3>
-        <div class="obj-grid">
-          <label class="obj-opt"><input type="radio" name="objetivo" value="perder-peso"/><div class="obj-inner"><span>⚖️</span><p>Perder peso</p></div></label>
-          <label class="obj-opt"><input type="radio" name="objetivo" value="ganar-musculo"/><div class="obj-inner"><span>💪</span><p>Ganar músculo</p></div></label>
-          <label class="obj-opt"><input type="radio" name="objetivo" value="tonificar"/><div class="obj-inner"><span>✨</span><p>Tonificar</p></div></label>
-          <label class="obj-opt"><input type="radio" name="objetivo" value="mejorar-salud"/><div class="obj-inner"><span>🌿</span><p>Mejorar la salud</p></div></label>
-          <label class="obj-opt"><input type="radio" name="objetivo" value="rendimiento"/><div class="obj-inner"><span>🏃</span><p>Mejorar rendimiento</p></div></label>
-          <label class="obj-opt"><input type="radio" name="objetivo" value="habitos"/><div class="obj-inner"><span>🌱</span><p>Adquirir hábitos</p></div></label>
-        </div>
-        <div class="fg mt16"><label>Cuéntame más sobre tu objetivo</label><textarea id="objetivo-detalle" rows="3" placeholder="¿Qué quieres conseguir exactamente?"></textarea></div>
-        <div class="fnav"><button class="btn-ghost-sm" onclick="goStep(2)">← Atrás</button><button class="btn-dark" onclick="goStep(4)">Continuar →</button></div>
-      </div>
-
-      <div class="fstep" id="step-4">
-        <h3 class="step-h">Historial médico y lesiones</h3>
-        <p class="step-desc">Esta información es confidencial y solo la verá Lucía para adaptar tu plan de forma segura.</p>
-        <div class="fg"><label>¿Tienes alguna condición médica relevante?</label><textarea id="condicion-medica" rows="3" placeholder="Ej: diabetes, hipertensión... Si no tienes, escribe 'Ninguna'"></textarea></div>
-        <div class="fg mt16"><label>¿Tienes o has tenido alguna lesión?</label><textarea id="lesiones" rows="3" placeholder="Ej: lesión de rodilla, lumbalgia... Si no tienes, escribe 'Ninguna'"></textarea></div>
-        <div class="fg mt16"><label>¿Tomas algún medicamento habitual?</label><input type="text" id="medicacion" placeholder="Nombre del medicamento o 'Ninguno'" /></div>
-        <div class="fnav"><button class="btn-ghost-sm" onclick="goStep(3)">← Atrás</button><button class="btn-dark" onclick="handleStep4Next()">Continuar →</button></div>
-      </div>
-
-      <div class="fstep" id="step-5-nutricion">
-        <h3 class="step-h">Hábitos alimenticios</h3>
-        <div class="fg"><label>¿Cómo describirías tu alimentación actual?</label><textarea id="alimentacion-actual" rows="3" placeholder="Ej: como mucha comida procesada, intento comer sano pero me cuesta..."></textarea></div>
-        <div class="fg mt16"><label>¿Tienes alguna intolerancia o alergia alimentaria?</label><textarea id="intolerancias" rows="2" placeholder="Ej: intolerancia a la lactosa, celiaquía... Si no tienes, escribe 'Ninguna'"></textarea></div>
-        <div class="fg mt16"><label>¿Sigues algún tipo de dieta o patrón alimentario?</label><input type="text" id="dieta-tipo" placeholder="Ej: vegetariana, vegana, omnívora..." /></div>
-        <div class="fgrid mt16">
-          <div class="fg"><label>Comidas al día</label><select id="num-comidas"><option value="">Selecciona...</option><option value="1-2">1-2 comidas</option><option value="3">3 comidas</option><option value="4-5">4-5 comidas</option><option value="mas-5">Más de 5</option></select></div>
-          <div class="fg"><label>Agua al día (litros)</label><input type="number" id="agua" placeholder="1.5" step="0.5" /></div>
-        </div>
-        <div class="fg mt16"><label>Alimentos que no te gustan o no comes</label><input type="text" id="no-gusta" placeholder="Ej: brócoli, pescado azul..." /></div>
-        <div class="fnav"><button class="btn-ghost-sm" onclick="goStep(4)">← Atrás</button><button class="btn-dark" onclick="nextFrom5Nutricion()">Continuar →</button></div>
-      </div>
-
-      <div class="fstep" id="step-5-entrenamiento">
-        <h3 class="step-h">Tu nivel y entrenamiento</h3>
-        <div class="fg"><label>Nivel de condición física</label>
-          <div class="pills"><label class="pill"><input type="radio" name="nivel" value="principiante"/>Principiante</label><label class="pill"><input type="radio" name="nivel" value="intermedio"/>Intermedio</label><label class="pill"><input type="radio" name="nivel" value="avanzado"/>Avanzado</label></div>
-        </div>
-        <div class="fg mt16"><label>¿Dónde entrenas?</label>
-          <div class="pills"><label class="pill"><input type="radio" name="lugar" value="gym"/>Gimnasio</label><label class="pill"><input type="radio" name="lugar" value="casa"/>En casa</label><label class="pill"><input type="radio" name="lugar" value="exterior"/>Aire libre</label><label class="pill"><input type="radio" name="lugar" value="mixto"/>Mixto</label></div>
-        </div>
-        <div class="fgrid mt16">
-          <div class="fg"><label>Días a la semana</label><select id="dias-entrenamiento"><option value="">Selecciona...</option><option value="1-2">1-2 días</option><option value="3-4">3-4 días</option><option value="5+">5 o más</option></select></div>
-          <div class="fg"><label>Tiempo por sesión</label><select id="tiempo-sesion"><option value="">Selecciona...</option><option value="30min">Menos de 30 min</option><option value="30-45min">30-45 min</option><option value="45-60min">45-60 min</option><option value="60+min">Más de 60 min</option></select></div>
-        </div>
-        <div class="fg mt16"><label>¿Has entrenado antes? ¿Qué has hecho?</label><textarea id="experiencia-previa" rows="2" placeholder="Ej: fui al gym 2 años, nunca he entrenado..."></textarea></div>
-        <div class="fnav"><button class="btn-ghost-sm" onclick="backFrom5Entrenamiento()">← Atrás</button><button class="btn-dark" onclick="goStep(6)">Continuar →</button></div>
-      </div>
-
-      <div class="fstep" id="step-6">
-        <h3 class="step-h">¡Casi listo!</h3>
-        <div class="fg"><label>¿Hay algo más que quieras contarme?</label><textarea id="comentarios" rows="3" placeholder="Cualquier cosa que creas que es importante que yo sepa..."></textarea></div>
-        <div class="fg mt16"><label>¿Cómo nos has conocido?</label><select id="como-conociste"><option value="">Selecciona...</option><option value="instagram">Instagram</option><option value="recomendacion">Recomendación</option><option value="google">Google</option><option value="otro">Otro</option></select></div>
-        <div class="fg mt16">
-          <label class="check-label"><input type="checkbox" id="privacidad" /><span>Acepto que mis datos sean utilizados por Lucía Alegría únicamente para elaborar mi plan personalizado. No serán compartidos con terceros.</span></label>
-        </div>
-        <div class="fnav"><button class="btn-ghost-sm" onclick="goBackFromStep6()">← Atrás</button>
-          <button class="btn-dark" id="btn-submit" onclick="submitForm()"><span id="btn-text">Enviar cuestionario 🌿</span><span id="btn-loading" style="display:none">Enviando...</span></button>
-        </div>
-      </div>
-
-      <div class="fstep" id="step-success">
-        <div class="success-box">
-          <div class="success-emoji">🌿</div>
-          <h3>¡Cuestionario enviado!</h3>
-          <p>Lucía ha recibido tus datos y se pondrá en contacto contigo en menos de 24 horas con tu propuesta personalizada. ¡Bienvenida/o!</p>
-        </div>
-      </div>
-
-      <div class="progress-bar-wrap" id="progress-wrap">
-        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
-        <span id="progress-label">Paso 1 de 6</span>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section class="contacto" id="contacto">
-    <div class="section-header">
-      <p class="section-label">📩 Contacto</p>
-      <h2 class="section-title">¿Hablamos?</h2>
-      <p class="section-sub">Cuéntame qué necesitas y te explico cómo puedo ayudarte. Sin compromiso.</p>
-    </div>
-    <div class="contacto-body">
-      <div class="contacto-left">
-        <h3>Estoy aquí para lo que necesites</h3>
-        <p>Si tienes dudas sobre qué servicio elegir, quieres más información o simplemente quieres saber cómo funciona todo, escríbeme. Te respondo lo antes posible.</p>
-        <div class="cinfo-list">
-          <div class="cinfo"><div class="cinfo-ic">💬</div><div><p class="cinfo-l">WhatsApp</p><strong>Soporte directo 24h</strong></div></div>
-          <div class="cinfo"><div class="cinfo-ic">📧</div><div><p class="cinfo-l">Email</p><strong>Contacto disponible por email</strong></div></div>
-          <div class="cinfo"><div class="cinfo-ic">📍</div><div><p class="cinfo-l">Ubicación</p><strong>Madrid</strong></div></div>
-        </div>
-      </div>
-      <div class="contacto-right">
-        <div class="cform">
-          <h4>Envíame un mensaje</h4>
-          <div class="fgrid">
-            <div class="fg"><label>Nombre</label><input type="text" id="c-nombre" placeholder="Tu nombre" /></div>
-            <div class="fg"><label>Email o WhatsApp</label><input type="text" id="c-contacto" placeholder="Para responderte" /></div>
-          </div>
-          <div class="fg mt16"><label>¿Qué servicio te interesa?</label>
-            <select id="c-servicio"><option value="">Selecciona...</option><option value="nutricion">Plan Nutricional</option><option value="entrenamiento">Plan de Entrenamiento</option><option value="completo">Plan Completo</option><option value="info">Solo quiero información</option></select>
-          </div>
-          <div class="fg mt16"><label>Mensaje</label><textarea id="c-mensaje" rows="4" placeholder="Cuéntame qué necesitas o qué dudas tienes..."></textarea></div>
-          <button class="btn-dark btn-full mt16" onclick="sendContact()">
-            <span id="c-btn-text">Enviar mensaje 🌿</span>
-            <span id="c-btn-loading" style="display:none">Enviando...</span>
-          </button>
-          <div id="c-success" class="c-success" style="display:none">🌿 <strong>¡Mensaje recibido!</strong> Te respondo en menos de 24 horas.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-logo">Alegría <em>Wellness</em></div>
-    <p class="footer-sub">Nutrición &amp; Entrenamiento Personal · Madrid</p>
-    <nav class="footer-nav">
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#formulario">Cuestionario</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alegría Wellness · Lucía Alegría</title>
+    <meta
+      name="description"
+      content="Planes personalizados de nutrición y entrenamiento con Lucía Alegría. Madrid."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <a href="#" class="nav-logo">Alegría <em>Wellness</em></a>
+      <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#formulario" class="nav-cta">Empezar ahora</a>
     </nav>
-    <p class="footer-copy">© 2025 Alegría Wellness · Lucía Alegría</p>
-  </footer>
 
-  <script src="script.js"></script>
-</body>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+      <div class="hero-left">
+        <div class="hero-tag">
+          <span class="tag-dot"></span>
+          Nutrición &amp; Entrenamiento Personal · Madrid
+        </div>
+        <h1 class="hero-title">
+          Tu mejor versión<br />empieza con un<br /><em>buen hábito</em>
+        </h1>
+        <p class="hero-sub">
+          Planes de nutrición y entrenamiento totalmente personalizados. Sin
+          dietas imposibles, sin rutinas genéricas. Solo lo que funciona para
+          <em>ti</em>.
+        </p>
+        <div class="hero-actions">
+          <a href="#formulario" class="btn-dark">Quiero empezar →</a>
+          <a href="#servicios" class="btn-ghost">Ver servicios</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat">
+            <span class="hstat-n">100%</span>
+            <span class="hstat-l">Planes personalizados</span>
+          </div>
+          <div class="hstat-div"></div>
+          <div class="hstat">
+            <span class="hstat-n">24h</span>
+            <span class="hstat-l">Soporte directo</span>
+          </div>
+          <div class="hstat-div"></div>
+          <div class="hstat">
+            <span class="hstat-n">2 en 1</span>
+            <span class="hstat-l">Nutrición + Entrenamiento</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-circle">
+          <!-- Para añadir la foto: reemplaza este div por
+             <img src="img/lucia.jpg" alt="Lucía Alegría" class="hero-photo" /> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="sobre" id="sobre-mi">
+      <div class="sobre-top">
+        <p class="section-label">🌿 Sobre mí</p>
+        <h2 class="section-title">Hola, soy <em>Lucía</em></h2>
+        <p class="sobre-tagline">
+          Nutricionista deportiva, dietista y entrenadora personal con una
+          misión clara: ayudarte a vivir mejor.
+        </p>
+      </div>
+      <div class="sobre-body">
+        <div class="sobre-left">
+          <blockquote class="quote-card">
+            "Me apasiona el mundo de la salud y el deporte. Ver a mis clientes
+            alcanzar sus objetivos es lo que me hace levantarme cada día con
+            energía."
+            <cite>— Lucía Alegría, fundadora de Alegría Wellness</cite>
+          </blockquote>
+          <div class="location-tag">📍 Madrid</div>
+        </div>
+        <div class="sobre-right">
+          <h3 class="sobre-sub">Formada para <em>acompañarte</em> de verdad</h3>
+          <p>
+            Me formé en Nutrición Deportiva y Dietética Aplicada, y después en
+            Fitness e Instrucción de Entrenamiento Personal porque quería
+            ofrecerte algo completo.
+          </p>
+          <p>
+            No creo en las dietas milagro ni en las rutinas copiadas. Cada
+            persona es diferente, y tu plan también lo será. Me gusta conocerte,
+            entender tu vida y diseñar algo que realmente puedas mantener.
+          </p>
+          <div class="sobre-tags">
+            <span>🎓 Nutrición Deportiva</span>
+            <span>🥗 Dietética Aplicada</span>
+            <span>💪 Entrenamiento Personal</span>
+            <span>🏋️ Instructor Fitness</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="servicios" id="servicios">
+      <div class="section-header">
+        <p class="section-label">✨ Servicios</p>
+        <h2 class="section-title">¿En qué puedo <em>ayudarte</em>?</h2>
+        <p class="section-sub">
+          Elige el servicio que mejor se adapta a lo que necesitas ahora
+          mismo.<br />Siempre puedes ampliar más adelante.
+        </p>
+      </div>
+      <div class="scards">
+        <div class="scard">
+          <div class="scard-icon">🥗</div>
+          <h3>Plan Nutricional</h3>
+          <p>
+            Un plan de alimentación diseñado para ti, adaptado a tus objetivos,
+            intolerancias y estilo de vida. Sin pasar hambre.
+          </p>
+          <ul>
+            <li>Plan semanal personalizado</li>
+            <li>Recetas y menús incluidos</li>
+            <li>Adaptado a tus gustos</li>
+            <li>Seguimiento semanal</li>
+          </ul>
+          <a
+            href="#formulario"
+            class="scard-cta"
+            onclick="preselect('nutricion')"
+            >Empezar cuestionario →</a
+          >
+        </div>
+        <div class="scard scard--dark">
+          <div class="scard-icon">🌿</div>
+          <h3>Plan Completo</h3>
+          <p>
+            Nutrición y entrenamiento juntos, el combo perfecto para transformar
+            tu cuerpo y tus hábitos de forma sostenible.
+          </p>
+          <ul>
+            <li>Plan nutricional completo</li>
+            <li>Rutina de entrenamiento</li>
+            <li>Seguimiento semanal</li>
+            <li>Soporte 24h por WhatsApp</li>
+            <li>Videollamadas de seguimiento</li>
+          </ul>
+          <a
+            href="#formulario"
+            class="scard-cta"
+            onclick="preselect('completo')"
+            >Empezar cuestionario →</a
+          >
+        </div>
+        <div class="scard">
+          <div class="scard-icon">💪</div>
+          <h3>Plan de Entrenamiento</h3>
+          <p>
+            Tu rutina ideal adaptada a tu nivel, disponibilidad y material.
+            Tanto si entrenas en gym, en casa o al aire libre.
+          </p>
+          <ul>
+            <li>Rutina personalizada</li>
+            <li>Adaptada a tu material</li>
+            <li>Progresión incluida</li>
+            <li>Seguimiento semanal</li>
+          </ul>
+          <a
+            href="#formulario"
+            class="scard-cta"
+            onclick="preselect('entrenamiento')"
+            >Empezar cuestionario →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUYE -->
+    <section class="incluye">
+      <p class="section-label section-label--light">⭐ En todos los planes</p>
+      <h2 class="section-title section-title--light">
+        Lo que siempre <em>incluye</em><br />trabajar conmigo
+      </h2>
+      <div class="icards">
+        <div class="icard">
+          <div class="icard-icon">📅</div>
+          <h4>Seguimiento semanal</h4>
+          <p>
+            Revisamos juntos cómo va todo cada semana y ajustamos lo que sea
+            necesario.
+          </p>
+        </div>
+        <div class="icard">
+          <div class="icard-icon">💬</div>
+          <h4>Soporte 24 horas</h4>
+          <p>
+            ¿Tienes una duda a las 10 de la noche? Estoy por WhatsApp y email
+            para responderte.
+          </p>
+        </div>
+        <div class="icard">
+          <div class="icard-icon">🎥</div>
+          <h4>Videollamadas</h4>
+          <p>
+            Sesiones de seguimiento por videollamada para que nunca te sientas
+            solo/a en el proceso.
+          </p>
+        </div>
+        <div class="icard">
+          <div class="icard-icon">🎯</div>
+          <h4>100% personalizado</h4>
+          <p>
+            Nada genérico. Todo diseñado para ti, tu vida, tus gustos y tus
+            objetivos concretos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="form-section" id="formulario">
+      <div class="section-header">
+        <p class="section-label">📋 Cuestionario de cliente</p>
+        <h2 class="section-title">Cuéntame sobre <em>ti</em></h2>
+        <p class="section-sub">
+          Rellena el cuestionario y me pondré en contacto contigo en menos de
+          24h con tu propuesta personalizada.
+        </p>
+      </div>
+
+      <div class="form-card" id="form-wrap">
+        <div class="fstep active" id="step-1">
+          <h3 class="step-h">¿Qué servicio te interesa?</h3>
+          <div class="svc-selector">
+            <label class="svc-opt"
+              ><input type="radio" name="servicio" value="nutricion" />
+              <div class="svc-inner">
+                <span>🥗</span><strong>Solo Nutrición</strong>
+              </div></label
+            >
+            <label class="svc-opt"
+              ><input type="radio" name="servicio" value="entrenamiento" />
+              <div class="svc-inner">
+                <span>💪</span><strong>Solo Entrenamiento</strong>
+              </div></label
+            >
+            <label class="svc-opt"
+              ><input type="radio" name="servicio" value="completo" />
+              <div class="svc-inner">
+                <span>🌿</span><strong>Plan Completo</strong>
+              </div></label
+            >
+          </div>
+          <button
+            class="btn-dark"
+            id="btn-s1"
+            onclick="goStep(2)"
+            disabled
+            style="margin-top: 24px; width: 100%"
+          >
+            Continuar →
+          </button>
+        </div>
+
+        <div class="fstep" id="step-2">
+          <h3 class="step-h">Tus datos personales</h3>
+          <div class="fgrid">
+            <div class="fg fg--full">
+              <label>Nombre completo *</label
+              ><input
+                type="text"
+                id="nombre"
+                placeholder="Tu nombre completo"
+              />
+            </div>
+            <div class="fg">
+              <label>Email *</label
+              ><input type="email" id="email" placeholder="tu@email.com" />
+            </div>
+            <div class="fg">
+              <label>Teléfono</label
+              ><input type="tel" id="telefono" placeholder="+34 600 000 000" />
+            </div>
+            <div class="fg">
+              <label>Edad *</label
+              ><input
+                type="number"
+                id="edad"
+                placeholder="25"
+                min="16"
+                max="99"
+              />
+            </div>
+            <div class="fg">
+              <label>Peso (kg) *</label
+              ><input type="number" id="peso" placeholder="65" step="0.1" />
+            </div>
+            <div class="fg">
+              <label>Altura (cm) *</label
+              ><input type="number" id="altura" placeholder="165" />
+            </div>
+            <div class="fg">
+              <label>Sexo *</label
+              ><select id="sexo">
+                <option value="">Selecciona...</option>
+                <option value="mujer">Mujer</option>
+                <option value="hombre">Hombre</option>
+                <option value="otro">Prefiero no decirlo</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Ocupación</label
+              ><input
+                type="text"
+                id="ocupacion"
+                placeholder="Ej: oficina, trabajo físico..."
+              />
+            </div>
+          </div>
+          <div class="fnav">
+            <button class="btn-ghost-sm" onclick="goStep(1)">← Atrás</button
+            ><button class="btn-dark" onclick="goStep(3)">Continuar →</button>
+          </div>
+        </div>
+
+        <div class="fstep" id="step-3">
+          <h3 class="step-h">Tu objetivo principal</h3>
+          <div class="obj-grid">
+            <label class="obj-opt"
+              ><input type="radio" name="objetivo" value="perder-peso" />
+              <div class="obj-inner">
+                <span>⚖️</span>
+                <p>Perder peso</p>
+              </div></label
+            >
+            <label class="obj-opt"
+              ><input type="radio" name="objetivo" value="ganar-musculo" />
+              <div class="obj-inner">
+                <span>💪</span>
+                <p>Ganar músculo</p>
+              </div></label
+            >
+            <label class="obj-opt"
+              ><input type="radio" name="objetivo" value="tonificar" />
+              <div class="obj-inner">
+                <span>✨</span>
+                <p>Tonificar</p>
+              </div></label
+            >
+            <label class="obj-opt"
+              ><input type="radio" name="objetivo" value="mejorar-salud" />
+              <div class="obj-inner">
+                <span>🌿</span>
+                <p>Mejorar la salud</p>
+              </div></label
+            >
+            <label class="obj-opt"
+              ><input type="radio" name="objetivo" value="rendimiento" />
+              <div class="obj-inner">
+                <span>🏃</span>
+                <p>Mejorar rendimiento</p>
+              </div></label
+            >
+            <label class="obj-opt"
+              ><input type="radio" name="objetivo" value="habitos" />
+              <div class="obj-inner">
+                <span>🌱</span>
+                <p>Adquirir hábitos</p>
+              </div></label
+            >
+          </div>
+          <div class="fg mt16">
+            <label>Cuéntame más sobre tu objetivo</label
+            ><textarea
+              id="objetivo-detalle"
+              rows="3"
+              placeholder="¿Qué quieres conseguir exactamente?"
+            ></textarea>
+          </div>
+          <div class="fnav">
+            <button class="btn-ghost-sm" onclick="goStep(2)">← Atrás</button
+            ><button class="btn-dark" onclick="goStep(4)">Continuar →</button>
+          </div>
+        </div>
+
+        <div class="fstep" id="step-4">
+          <h3 class="step-h">Historial médico y lesiones</h3>
+          <p class="step-desc">
+            Esta información es confidencial y solo la verá Lucía para adaptar
+            tu plan de forma segura.
+          </p>
+          <div class="fg">
+            <label>¿Tienes alguna condición médica relevante?</label
+            ><textarea
+              id="condicion-medica"
+              rows="3"
+              placeholder="Ej: diabetes, hipertensión... Si no tienes, escribe 'Ninguna'"
+            ></textarea>
+          </div>
+          <div class="fg mt16">
+            <label>¿Tienes o has tenido alguna lesión?</label
+            ><textarea
+              id="lesiones"
+              rows="3"
+              placeholder="Ej: lesión de rodilla, lumbalgia... Si no tienes, escribe 'Ninguna'"
+            ></textarea>
+          </div>
+          <div class="fg mt16">
+            <label>¿Tomas algún medicamento habitual?</label
+            ><input
+              type="text"
+              id="medicacion"
+              placeholder="Nombre del medicamento o 'Ninguno'"
+            />
+          </div>
+          <div class="fnav">
+            <button class="btn-ghost-sm" onclick="goStep(3)">← Atrás</button
+            ><button class="btn-dark" onclick="handleStep4Next()">
+              Continuar →
+            </button>
+          </div>
+        </div>
+
+        <div class="fstep" id="step-5-nutricion">
+          <h3 class="step-h">Hábitos alimenticios</h3>
+          <div class="fg">
+            <label>¿Cómo describirías tu alimentación actual?</label
+            ><textarea
+              id="alimentacion-actual"
+              rows="3"
+              placeholder="Ej: como mucha comida procesada, intento comer sano pero me cuesta..."
+            ></textarea>
+          </div>
+          <div class="fg mt16">
+            <label>¿Tienes alguna intolerancia o alergia alimentaria?</label
+            ><textarea
+              id="intolerancias"
+              rows="2"
+              placeholder="Ej: intolerancia a la lactosa, celiaquía... Si no tienes, escribe 'Ninguna'"
+            ></textarea>
+          </div>
+          <div class="fg mt16">
+            <label>¿Sigues algún tipo de dieta o patrón alimentario?</label
+            ><input
+              type="text"
+              id="dieta-tipo"
+              placeholder="Ej: vegetariana, vegana, omnívora..."
+            />
+          </div>
+          <div class="fgrid mt16">
+            <div class="fg">
+              <label>Comidas al día</label
+              ><select id="num-comidas">
+                <option value="">Selecciona...</option>
+                <option value="1-2">1-2 comidas</option>
+                <option value="3">3 comidas</option>
+                <option value="4-5">4-5 comidas</option>
+                <option value="mas-5">Más de 5</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Agua al día (litros)</label
+              ><input type="number" id="agua" placeholder="1.5" step="0.5" />
+            </div>
+          </div>
+          <div class="fg mt16">
+            <label>Alimentos que no te gustan o no comes</label
+            ><input
+              type="text"
+              id="no-gusta"
+              placeholder="Ej: brócoli, pescado azul..."
+            />
+          </div>
+          <div class="fnav">
+            <button class="btn-ghost-sm" onclick="goStep(4)">← Atrás</button
+            ><button class="btn-dark" onclick="nextFrom5Nutricion()">
+              Continuar →
+            </button>
+          </div>
+        </div>
+
+        <div class="fstep" id="step-5-entrenamiento">
+          <h3 class="step-h">Tu nivel y entrenamiento</h3>
+          <div class="fg">
+            <label>Nivel de condición física</label>
+            <div class="pills">
+              <label class="pill"
+                ><input
+                  type="radio"
+                  name="nivel"
+                  value="principiante"
+                />Principiante</label
+              ><label class="pill"
+                ><input
+                  type="radio"
+                  name="nivel"
+                  value="intermedio"
+                />Intermedio</label
+              ><label class="pill"
+                ><input
+                  type="radio"
+                  name="nivel"
+                  value="avanzado"
+                />Avanzado</label
+              >
+            </div>
+          </div>
+          <div class="fg mt16">
+            <label>¿Dónde entrenas?</label>
+            <div class="pills">
+              <label class="pill"
+                ><input type="radio" name="lugar" value="gym" />Gimnasio</label
+              ><label class="pill"
+                ><input type="radio" name="lugar" value="casa" />En casa</label
+              ><label class="pill"
+                ><input type="radio" name="lugar" value="exterior" />Aire
+                libre</label
+              ><label class="pill"
+                ><input type="radio" name="lugar" value="mixto" />Mixto</label
+              >
+            </div>
+          </div>
+          <div class="fgrid mt16">
+            <div class="fg">
+              <label>Días a la semana</label
+              ><select id="dias-entrenamiento">
+                <option value="">Selecciona...</option>
+                <option value="1-2">1-2 días</option>
+                <option value="3-4">3-4 días</option>
+                <option value="5+">5 o más</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Tiempo por sesión</label
+              ><select id="tiempo-sesion">
+                <option value="">Selecciona...</option>
+                <option value="30min">Menos de 30 min</option>
+                <option value="30-45min">30-45 min</option>
+                <option value="45-60min">45-60 min</option>
+                <option value="60+min">Más de 60 min</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg mt16">
+            <label>¿Has entrenado antes? ¿Qué has hecho?</label
+            ><textarea
+              id="experiencia-previa"
+              rows="2"
+              placeholder="Ej: fui al gym 2 años, nunca he entrenado..."
+            ></textarea>
+          </div>
+          <div class="fnav">
+            <button class="btn-ghost-sm" onclick="backFrom5Entrenamiento()">
+              ← Atrás</button
+            ><button class="btn-dark" onclick="goStep(6)">Continuar →</button>
+          </div>
+        </div>
+
+        <div class="fstep" id="step-6">
+          <h3 class="step-h">¡Casi listo!</h3>
+          <div class="fg">
+            <label>¿Hay algo más que quieras contarme?</label
+            ><textarea
+              id="comentarios"
+              rows="3"
+              placeholder="Cualquier cosa que creas que es importante que yo sepa..."
+            ></textarea>
+          </div>
+          <div class="fg mt16">
+            <label>¿Cómo nos has conocido?</label
+            ><select id="como-conociste">
+              <option value="">Selecciona...</option>
+              <option value="instagram">Instagram</option>
+              <option value="recomendacion">Recomendación</option>
+              <option value="google">Google</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="fg mt16">
+            <label class="check-label"
+              ><input type="checkbox" id="privacidad" /><span
+                >Acepto que mis datos sean utilizados por Lucía Alegría
+                únicamente para elaborar mi plan personalizado. No serán
+                compartidos con terceros.</span
+              ></label
+            >
+          </div>
+          <div class="fnav">
+            <button class="btn-ghost-sm" onclick="goBackFromStep6()">
+              ← Atrás
+            </button>
+            <button class="btn-dark" id="btn-submit" onclick="submitForm()">
+              <span id="btn-text">Enviar cuestionario 🌿</span
+              ><span id="btn-loading" style="display: none">Enviando...</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="fstep" id="step-success">
+          <div class="success-box">
+            <div class="success-emoji">🌿</div>
+            <h3>¡Cuestionario enviado!</h3>
+            <p>
+              Lucía ha recibido tus datos y se pondrá en contacto contigo en
+              menos de 24 horas con tu propuesta personalizada. ¡Bienvenida/o!
+            </p>
+          </div>
+        </div>
+
+        <div class="progress-bar-wrap" id="progress-wrap">
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span id="progress-label">Paso 1 de 6</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+      <div class="section-header">
+        <p class="section-label">📩 Contacto</p>
+        <h2 class="section-title">¿Hablamos?</h2>
+        <p class="section-sub">
+          Cuéntame qué necesitas y te explico cómo puedo ayudarte. Sin
+          compromiso.
+        </p>
+      </div>
+      <div class="contacto-body">
+        <div class="contacto-left">
+          <h3>Estoy aquí para lo que necesites</h3>
+          <p>
+            Si tienes dudas sobre qué servicio elegir, quieres más información o
+            simplemente quieres saber cómo funciona todo, escríbeme. Te respondo
+            lo antes posible.
+          </p>
+          <div class="cinfo-list">
+            <div class="cinfo">
+              <div class="cinfo-ic">💬</div>
+              <div>
+                <p class="cinfo-l">WhatsApp</p>
+                <strong>Soporte directo 24h</strong>
+              </div>
+            </div>
+            <div class="cinfo">
+              <div class="cinfo-ic">📧</div>
+              <div>
+                <p class="cinfo-l">Email</p>
+                <strong>Contacto disponible por email</strong>
+              </div>
+            </div>
+            <div class="cinfo">
+              <div class="cinfo-ic">📍</div>
+              <div>
+                <p class="cinfo-l">Ubicación</p>
+                <strong>Madrid</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contacto-right">
+          <div class="cform">
+            <h4>Envíame un mensaje</h4>
+            <div class="fgrid">
+              <div class="fg">
+                <label>Nombre</label
+                ><input type="text" id="c-nombre" placeholder="Tu nombre" />
+              </div>
+              <div class="fg">
+                <label>Email o WhatsApp</label
+                ><input
+                  type="text"
+                  id="c-contacto"
+                  placeholder="Para responderte"
+                />
+              </div>
+            </div>
+            <div class="fg mt16">
+              <label>¿Qué servicio te interesa?</label>
+              <select id="c-servicio">
+                <option value="">Selecciona...</option>
+                <option value="nutricion">Plan Nutricional</option>
+                <option value="entrenamiento">Plan de Entrenamiento</option>
+                <option value="completo">Plan Completo</option>
+                <option value="info">Solo quiero información</option>
+              </select>
+            </div>
+            <div class="fg mt16">
+              <label>Mensaje</label
+              ><textarea
+                id="c-mensaje"
+                rows="4"
+                placeholder="Cuéntame qué necesitas o qué dudas tienes..."
+              ></textarea>
+            </div>
+            <button class="btn-dark btn-full mt16" onclick="sendContact()">
+              <span id="c-btn-text">Enviar mensaje 🌿</span>
+              <span id="c-btn-loading" style="display: none">Enviando...</span>
+            </button>
+            <div id="c-success" class="c-success" style="display: none">
+              🌿 <strong>¡Mensaje recibido!</strong> Te respondo en menos de 24
+              horas.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-logo">Alegría <em>Wellness</em></div>
+      <p class="footer-sub">Nutrición &amp; Entrenamiento Personal · Madrid</p>
+      <nav class="footer-nav">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#formulario">Cuestionario</a>
+      </nav>
+      <p class="footer-copy">© 2025 Alegría Wellness · Lucía Alegría</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
